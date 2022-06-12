@@ -1,0 +1,42 @@
+Manual Code for convolution
+Asked by Kwanghun Choi on 6 Nov 2017
+Latest activity Answered by Birdman on 6 Nov 2017
+Accepted Answer by Birdman
+1 222 views (last 30 days)
+Hello there!! Now, I make a code for convolution. data is discrete like
+x=[1,3,5,7,9]; y=[5,4,3,2,1];
+It mean if t=1, x is 1 and y=5 / if t=3, x is 5, y is 3 ....
+So I cannot use 'conv' function. My code is like that
+             for t=1:5
+                 convolution(t)=0;
+                 for j=1:t
+                    convolution(t)=convolution(t)+x(t+1-j)*y(j);
+                 end
+             end
+But result is not good. Are there something to fix?
+  0 Comments
+Sign in to comment.
+
+ 1 Answer
+Birdman
+0
+Link
+Answer by Birdman on 6 Nov 2017
+ Accepted Answer
+
+x=input('Enter x:   ')
+h=input('Enter h:   ')
+m=length(x);
+n=length(h);
+X=[x,zeros(1,n)]; 
+H=[h,zeros(1,m)]; 
+for i=1:n+m-1
+Y(i)=0;
+for j=1:m
+if(i-j+1>0)
+Y(i)=Y(i)+X(j)*H(i-j+1);
+else
+end
+end
+end
+Y
